@@ -1,6 +1,12 @@
 import React, {Component} from 'react';
+import $ from 'jquery';
 
 class Box extends Component {
+
+	componentDidMount(){
+		let whoToTarget = "#" + this.props.name
+		$(whoToTarget).show(3000);
+	}
 
 	constructor(props){
 		super(props);
@@ -17,11 +23,11 @@ class Box extends Component {
 	}
 
 	render(){
-		if (this.state.blue){
-			return<div className="box">blue</div>
-		}else{
-			return<div>red</div>
-		}
+		return(
+			<div className="box" id={this.props.name}>
+				{this.props.name}
+			</div>
+		)	
 	}
 }
 export default Box;

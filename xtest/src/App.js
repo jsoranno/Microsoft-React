@@ -9,7 +9,8 @@ class App extends Component {
     super(props);
     this.state = {
       name: "alain",
-      blue: true
+      blue: true,
+      arrayOfBoxes: []
     }
    } 
 
@@ -23,19 +24,26 @@ class App extends Component {
   formSubmit(e){
     e.preventDefault();
     let result = e.target.newBox.value;
-    this.setState({name: result})
-    $('input').val("");
+    let newResult = this.state.arrayOfBoxes.concat(result);
+    this.setState({
+      arrayOfBoxes: newResult
+    })
 
+    $('input').val("");
   }
 
   render() {
     let y = <h2> omg </h2>;
-    let x = <h1> wow </h1>;
     return (
       <div>
+        {this.state.arrayOfBoxes.map(function(x){
+          return(
+            <Box name={x} key={x} />
+            )
+          })}
+        
         <Box name="sarah" />
         {y}
-        {x}
         <h2 onClick={this.touchedMe.bind(this)} className='test'> {this.state.name}</h2>
         {this.state.blue ?
             <p>test</p>
