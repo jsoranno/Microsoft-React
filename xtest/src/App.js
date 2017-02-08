@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import $ from 'jquery';
 import Box from './box.js';
 
 class App extends Component {
@@ -19,8 +20,12 @@ class App extends Component {
     })
   }
 
-  formSubmit(){
-    
+  formSubmit(e){
+    e.preventDefault();
+    let result = e.target.newBox.value;
+    this.setState({name: result})
+    $('input').val("");
+
   }
 
   render() {
