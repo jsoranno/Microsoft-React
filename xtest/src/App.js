@@ -19,6 +19,10 @@ class App extends Component {
     })
   }
 
+  formSubmit(){
+    
+  }
+
   render() {
     let y = <h2> omg </h2>;
     let x = <h1> wow </h1>;
@@ -33,6 +37,11 @@ class App extends Component {
             :
             <p>no test</p>
         }
+        <form onSubmit={this.formSubmit.bind(this)}>
+          <label>Name please</label>
+          <br />
+          <input name="newBox" />
+        </form>
       </div>
     );
   }
